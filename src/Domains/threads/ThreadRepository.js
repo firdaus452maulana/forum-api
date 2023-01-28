@@ -1,9 +1,9 @@
 class ThreadRepository {
-  async addThread (token) {
+  async addThread (CreateThread) {
     throw new Error('THREAD_REPOSITORY.METHOD_NOT_IMPLEMENTED')
   }
 
-  async getThreadById (token) {
+  async getThreadById (id) {
     throw new Error('THREAD_REPOSITORY.METHOD_NOT_IMPLEMENTED')
   }
 }

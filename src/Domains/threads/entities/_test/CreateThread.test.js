@@ -1,7 +1,7 @@
 /* eslint-disable no-undef */
 const CreateThread = require('../CreateThread')
 
-describe('a RegisterUser entities', () => {
+describe('a CreateThread entities', () => {
   it('should throw error when payload did not contain needed property', () => {
     // Arrange
     const payload = {
