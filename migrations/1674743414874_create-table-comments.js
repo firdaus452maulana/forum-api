@@ -16,6 +16,9 @@ exports.up = (pgm) => {
     owner: {
       type: 'VARCHAR(50)'
     },
+    is_delete: {
+      type: 'BOOLEAN'
+    },
     date: {
       type: 'TEXT',
       notNull: true
