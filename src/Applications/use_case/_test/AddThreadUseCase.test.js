@@ -30,7 +30,7 @@ describe('AddThreadUseCase', () => {
     })
 
     // Action
-    const createdThread = await addThreadUseCase.execute(expectedCreatedThread.owner, useCasePayload)
+    const createdThread = await addThreadUseCase.execute(useCasePayload, expectedCreatedThread.owner)
 
     // Assert
     expect(createdThread).toStrictEqual(expectedCreatedThread)

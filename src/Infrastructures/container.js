@@ -47,6 +47,17 @@ container.register([
     }
   },
   {
+    key: AuthenticationRepository.name,
+    Class: AuthenticationRepositoryPostgres,
+    parameter: {
+      dependencies: [
+        {
+          concrete: pool
+        }
+      ]
+    }
+  },
+  {
     key: ThreadRepository.name,
     Class: ThreadRepositoryPostgres,
     parameter: {
@@ -56,17 +67,6 @@ container.register([
         },
         {
           concrete: nanoid
-        }
-      ]
-    }
-  },
-  {
-    key: AuthenticationRepository.name,
-    Class: AuthenticationRepositoryPostgres,
-    parameter: {
-      dependencies: [
-        {
-          concrete: pool
         }
       ]
     }

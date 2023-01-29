@@ -28,7 +28,7 @@ const CommentsTableTestHelper = {
   },
 
   async cleanTable () {
-    await pool.query('TRUNCATE TABLE comments')
+    await pool.query('DELETE FROM comments')
   }
 }
 
