@@ -3,6 +3,7 @@ const pool = require('../../database/postgres/pool')
 const ThreadsTableTestHelper = require('../../../../tests/ThreadsTableTestHelper')
 const ServerTestHelper = require('../../../../tests/ServerTestHelper')
 const UsersTableTestHelper = require('../../../../tests/UsersTableTestHelper')
+const AuthenticationsTableTestHelper = require('../../../../tests/AuthenticationsTableTestHelper')
 const container = require('../../container')
 const createServer = require('../createServer')
 
@@ -13,6 +14,7 @@ describe('/threads endpoint', () => {
 
   afterEach(async () => {
     await UsersTableTestHelper.cleanTable()
+    await AuthenticationsTableTestHelper.cleanTable()
     await ThreadsTableTestHelper.cleanTable()
   })
 
