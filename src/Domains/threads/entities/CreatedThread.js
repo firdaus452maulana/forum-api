@@ -1,4 +1,4 @@
-class CreatedUser {
+class CreatedThread {
   constructor (payload) {
     this._verifyPayload(payload)
 
@@ -20,4 +20,4 @@ class CreatedUser {
   }
 }
 
-module.exports = CreatedUser
+module.exports = CreatedThread
