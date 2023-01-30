@@ -2,29 +2,37 @@ const pool = require('../src/Infrastructures/database/postgres/pool')
 
 const CommentsTableTestHelper = {
   async addComment ({
-    id = 'comment-123', content = 'comment-content', threadId = 'thread-123', owner = 'user-123'
+    id, content, threadId, owner
   }) {
     const date = new Date().toISOString()
 
     const query = {
-      text: 'INSERT INTO comments VALUES($1, $2, $3, $4, $5, $6)',
+      text: 'INSERT INTO comments VALUES($1, $2, $3, $4, $5, $6)  RETURNING date',
       values: [id, content, threadId, owner, false, date]
     }
 
-    await pool.query(query)
+    const result = await pool.query(query)
+    return result.rows[0].date
   },
 
-  async deleteComment ({
-    id = 'comment-123', threadId = 'thread-123'
-  }) {
-    const date = new Date().toISOString()
-
+  async getCommentById (id) {
     const query = {
-      text: 'UPDATE comments SET is_delete = $2, updated_at = $3 WHERE id = $1 AND thread_id = $4',
-      values: [id, true, date, threadId, threadId]
+      text: 'SELECT * FROM comments WHERE id = $1',
+      values: [id]
     }
 
-    await pool.query(query)
+    const result = await pool.query(query)
+    return result.rows
+  },
+
+  async getDeletedCommentById (id) {
+    const query = {
+      text: 'SELECT * FROM comments WHERE id = $1 AND is_delete = $2',
+      values: [id, true]
+    }
+
+    const result = await pool.query(query)
+    return result.rows
   },
 
   async cleanTable () {
