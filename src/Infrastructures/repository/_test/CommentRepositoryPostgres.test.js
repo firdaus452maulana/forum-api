@@ -132,12 +132,13 @@ describe('CommentRepositoryPostgres', () => {
         id: 'comment-123',
         username: 'dicodingNew',
         date: createdComment,
-        content: 'comment-content'
+        content: 'comment-content',
+        is_delete: false
       }
 
       // Action & Assert
       const accuiredComment = await commentRepositoryPostgres.getCommentByThreadId(threadId)
-      expect(accuiredComment).toStrictEqual(expectedComment)
+      expect(accuiredComment[0]).toStrictEqual(expectedComment)
     })
   })
 
