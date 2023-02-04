@@ -12,7 +12,7 @@ describe('DeleteCommentUseCase', () => {
     }
     const userId = 'user-123'
     const expectedDeletedComment = {
-      status: 'success'
+      id: 'comment-123'
     }
 
     /** creating dependency of use case */

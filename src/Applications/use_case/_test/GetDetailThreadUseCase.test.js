@@ -13,14 +13,20 @@ describe('GetDetailThreadUseCase', () => {
       id: 'thread-123',
       title: 'thread-title',
       body: 'thread-body',
-      date: '2021-08-08T07:19:09.775Z',
+      date: '2023-02-02T07:19:09.775Z',
       username: 'dicoding',
       comments: [
         {
           id: 'comment-123',
           username: 'dicodingNew',
-          date: '2021-08-08T07:22:33.555Z',
+          date: '2023-02-02T07:22:33.555Z',
           content: 'comment-content'
+        },
+        {
+          id: 'comment-456',
+          username: 'dicodingNew',
+          date: '2023-02-02T07:22:33.555Z',
+          content: '**komentar telah dihapus**'
         }
       ]
     }
@@ -28,15 +34,23 @@ describe('GetDetailThreadUseCase', () => {
       id: 'thread-123',
       title: 'thread-title',
       body: 'thread-body',
-      date: '2021-08-08T07:19:09.775Z',
+      date: '2023-02-02T07:19:09.775Z',
       username: 'dicoding'
     }
-    const expectedComments = [{
-      id: 'comment-123',
-      username: 'dicodingNew',
-      date: '2021-08-08T07:22:33.555Z',
-      content: 'comment-content'
-    }]
+    const expectedComments = [
+      {
+        id: 'comment-123',
+        username: 'dicodingNew',
+        date: '2023-02-02T07:22:33.555Z',
+        content: 'comment-content'
+      },
+      {
+        id: 'comment-456',
+        username: 'dicodingNew',
+        date: '2023-02-02T07:22:33.555Z',
+        content: '**komentar telah dihapus**'
+      }
+    ]
 
     /** creating dependency of use case */
     const mockThreadRepository = new ThreadRepository()
