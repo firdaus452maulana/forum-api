@@ -42,13 +42,15 @@ describe('GetDetailThreadUseCase', () => {
         id: 'comment-123',
         username: 'dicodingNew',
         date: '2023-02-02T07:22:33.555Z',
-        content: 'comment-content'
+        content: 'comment-content',
+        is_delete: false
       },
       {
         id: 'comment-456',
         username: 'dicodingNew',
         date: '2023-02-02T07:22:33.555Z',
-        content: '**komentar telah dihapus**'
+        content: 'comment-content',
+        is_delete: true
       }
     ]
 
