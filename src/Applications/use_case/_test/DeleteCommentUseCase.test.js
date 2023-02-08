@@ -11,9 +11,7 @@ describe('DeleteCommentUseCase', () => {
       commentId: 'comment-123'
     }
     const userId = 'user-123'
-    const expectedDeletedComment = {
-      id: 'comment-123'
-    }
+    const expectedDeletedComment = 'comment-123'
 
     /** creating dependency of use case */
     const mockThreadRepository = new ThreadRepository()
